@@ -1,10 +1,14 @@
-
+<?php
+include 'header.php';
+$index = $_GET["index"];
+//echo $index;
+?>
 <div class="row g-5">
     <div class="col-md-8">
       
       <article class="blog-post">
-        <h2 class="blog-post-title mb-1">Title</h2>
-        <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
+        <h2 class="blog-post-title mb-1"><?php echo $posts[$index]["title"]; ?></h2>
+        <p class="blog-post-meta"><?php echo $posts[$index]["published"]; ?> by <a href="#"><?php echo $posts[$index]["author"]; ?></a></p>
 
         <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
         <ul>
@@ -17,3 +21,7 @@
 
   </div>
 </div>
+<?php
+setcookie('category', $posts[$index]["category"]);
+include 'footer.php'
+?>
